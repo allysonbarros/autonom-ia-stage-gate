@@ -1,23 +1,18 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { readdir, readFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
 const root = path.resolve(".");
 const manifestPath = "docs/provenance/export-manifest.json";
 
-async function trackedFiles(relative = "") {
-  const directory = path.join(root, relative);
-  const children = await readdir(directory, { withFileTypes: true });
-  const result = [];
-  for (const child of children) {
-    const childRelative = path.join(relative, child.name);
-    if (child.name === ".git") continue;
-    if (child.isDirectory()) result.push(...await trackedFiles(childRelative));
-    else if (child.isFile()) result.push(childRelative.split(path.sep).join("/"));
-  }
-  return result;
+function trackedFiles() {
+  return execFileSync("git", ["ls-files", "-z"], { cwd: root, encoding: "buffer" })
+    .toString("utf8")
+    .split("\0")
+    .filter(Boolean);
 }
 
 async function sha256(relative) {
@@ -28,7 +23,7 @@ async function sha256(relative) {
 test("provenance manifest covers every public file other than itself", async () => {
   const manifest = JSON.parse(await readFile(path.join(root, manifestPath), "utf8"));
   const entries = new Map(manifest.entries.map((entry) => [entry.destination, entry]));
-  const files = (await trackedFiles()).filter((file) => file !== manifestPath).sort();
+  const files = trackedFiles().filter((file) => file !== manifestPath).sort();
 
   assert.deepEqual([...entries.keys()].sort(), files);
   for (const file of files) {

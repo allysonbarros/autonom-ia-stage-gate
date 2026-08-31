@@ -7,6 +7,7 @@
     "test": "npm run test:all",
     "test:all": "node --test test/*.test.mjs packages/*/test/*.test.mjs",
     "test:contracts": "node --test packages/contracts/test/*.test.mjs",
+    "test:evaluator": "node --test packages/evaluator/test/*.test.mjs",
     "test:public-safety": "node --test test/public-safety.test.mjs",
     "check:public-safety": "node scripts/check-public-safety.mjs"
   },
