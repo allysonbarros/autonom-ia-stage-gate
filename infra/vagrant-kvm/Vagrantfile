@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+Vagrant.configure("2") do |config|
+  abort "Install the vagrant-libvirt plugin before starting this VM." unless Vagrant.has_plugin?("vagrant-libvirt")
+
+  config.vm.box = ENV.fetch("STAGE_GATE_BOX", "generic/debian12")
+  config.vm.hostname = ENV.fetch("STAGE_GATE_HOSTNAME", "stage-gate-provider-free")
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.boot_timeout = Integer(ENV.fetch("STAGE_GATE_BOOT_TIMEOUT", "600"))
+
+  config.vm.provider :libvirt do |libvirt|
+    libvirt.default_prefix = "stage-gate"
+    libvirt.cpus = Integer(ENV.fetch("STAGE_GATE_CPUS", "4"))
+    libvirt.memory = Integer(ENV.fetch("STAGE_GATE_MEMORY_MB", "8192"))
+    libvirt.machine_type = "q35"
+    libvirt.storage :file, size: Integer(ENV.fetch("STAGE_GATE_DISK_GB", "80"))
+  end
+
+  config.vm.provision "bootstrap-root", type: "shell", path: "provision/bootstrap-root.sh", privileged: true
+  config.vm.provision "verify-provider-free", type: "shell", path: "provision/verify-provider-free.sh", privileged: true
+end
