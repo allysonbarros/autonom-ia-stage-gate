@@ -1,0 +1,10 @@
+{
+  "fixture_id": "garden-notes-demo",
+  "schema_version": "1.0.0",
+  "scientific_eligible": false,
+  "synthetic": true,
+  "work_item": {
+    "objective": "Track fictional garden notes",
+    "title": "Garden Notes"
+  }
+}

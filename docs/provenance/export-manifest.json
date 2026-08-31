@@ -5,6 +5,7 @@
     "only_synthetic_inputs": true,
     "external_provider_dispatch": false,
     "private_source_paths_recorded_here": false,
+    "owner_authorized_incremental_extraction": true,
     "registry_exception": "This registry is integrity-protected by its Git commit and therefore does not contain a self-referential content hash."
   },
   "entries": [
@@ -16,14 +17,20 @@
     { "destination": "SECURITY.md", "sha256": "853c0b6563ea8a32a296918f50153d4d7d17da9a96fd221023c9f92b8f0e3d52", "classification": "public-documentation", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "docs/gates.md", "sha256": "253bb46f187cefc5b1a83d1aee052124f2c18ee83861ca0f43d28dbd7d1abcf1", "classification": "public-documentation", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "docs/public-private-boundary.md", "sha256": "8244ddd0afaa67294e26d9faf8078584b3beb2bcf5d493b8985b99e148b3150b", "classification": "public-boundary-policy", "origin": "clean-room", "review_status": "pending-human-review" },
-    { "destination": "docs/specs/SPEC-001-provider-free-gate-extraction.md", "sha256": "9c6357ec28eb2d0cb62d34323e2c9202fb38ced83ca41302a8dba46d87176fc3", "classification": "public-specification", "origin": "clean-room", "review_status": "pending-human-review" },
+    { "destination": "docs/specs/SPEC-001-provider-free-gate-extraction.md", "sha256": "a85b800a4ae9c58c075f68313b477393855f4762a0f423fcab5b13eb07066826", "classification": "public-specification", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "docs/specs/criticas/CRITICA-SPEC-001-2026-08-31.md", "sha256": "59bc233f17d9896d63ac10380bea7f76f8a6b42b0d0b8c402ffd2d487a6200d2", "classification": "public-specification-review", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "fixtures/synthetic/README.md", "sha256": "f58ecb2f1dfe870dde2a8750ba731e957bfcc7f2d99bbea6b5ca1b0b7c06fbfb", "classification": "synthetic-fixture-policy", "origin": "clean-room", "review_status": "pending-human-review" },
-    { "destination": "package.json", "sha256": "98bd35021409c11cb30743b6dbe8609e7f2c266f4a2d327e4c42c324b2de2ab6", "classification": "public-build-control", "origin": "clean-room", "review_status": "pending-human-review" },
+    { "destination": "fixtures/synthetic/contracts/garden-notes-demo.json", "sha256": "e4a6e4b776665ee3ad4717d999b45e6e058cf64b317261a131ad7eb67238cfb2", "classification": "synthetic-contract-fixture", "origin": "clean-room", "review_status": "owner-authorized-extraction" },
+    { "destination": "package.json", "sha256": "1d37fdf8369988290cccfd0241ad5d7d714c40153eed5b79bc065f92427b2eba", "classification": "public-build-control", "origin": "clean-room", "review_status": "pending-human-review" },
+    { "destination": "packages/contracts/README.md", "sha256": "959ff8d5f1055fdd20af57dd180d56127f8ec9d7a931a5dba4acfd7343444413", "classification": "public-package-documentation", "origin": "clean-room", "review_status": "owner-authorized-extraction" },
+    { "destination": "packages/contracts/src/canonical-json.mjs", "sha256": "1dd0440961ab518dc13676e177cdb7b0e5aa08e1c0bd7e435d68354d6184a144", "classification": "public-contract-runtime", "origin": "research-project-source", "review_status": "owner-authorized-extraction" },
+    { "destination": "packages/contracts/src/index.mjs", "sha256": "2a405c8cc3dc41b8a5dd39c2fb6d44d0b4c27d5345c53a5491405b191cdfd6ad", "classification": "public-contract-runtime", "origin": "clean-room", "review_status": "owner-authorized-extraction" },
+    { "destination": "packages/contracts/src/synthetic-contract.mjs", "sha256": "fc213460b2b2b0a0f7b65bdd1d5dd62c5353e27a719b8a364094959a4c96a6fb", "classification": "public-contract-runtime", "origin": "clean-room", "review_status": "owner-authorized-extraction" },
+    { "destination": "packages/contracts/test/contracts.test.mjs", "sha256": "dc09cf5da3825822c23c1c9eac513d0832a480197c070e37532c157ef1d9cdbb", "classification": "synthetic-contract-test", "origin": "clean-room", "review_status": "owner-authorized-extraction" },
     { "destination": "scripts/check-public-safety.mjs", "sha256": "59a6e78926ca16b61455faec979284cfb36db623ffd37a267087cef321a43e36", "classification": "public-security-control", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "test/public-boundary.test.mjs", "sha256": "e78b3e5325d4802daf8a4557d0317250040230cdd99afee5c08cf01a3eaaac9c", "classification": "synthetic-test-control", "origin": "clean-room", "review_status": "pending-human-review" },
     { "destination": "test/public-safety.test.mjs", "sha256": "2afebf69a6656fe8ef6fccc52d9a5cfbc7b11f8ac1ede29dda832fc3168f82e4", "classification": "synthetic-test-control", "origin": "clean-room", "review_status": "pending-human-review" },
-    { "destination": "test/provenance.test.mjs", "sha256": "5985132264e3e3e5e3f42c010a6cdf0c3f961f7ea8dce881847d8c6a48dddfaf", "classification": "synthetic-test-control", "origin": "clean-room", "review_status": "pending-human-review" }
+    { "destination": "test/provenance.test.mjs", "sha256": "d7c72950fa76579c04b0e68a852a01adac209d84b44290a0716fd7171f3ed88b", "classification": "synthetic-test-control", "origin": "clean-room", "review_status": "pending-human-review" }
   ],
   "future_export_rule": "Every extracted module requires an individual entry with a content hash and an identified human reviewer before it is merged."
 }

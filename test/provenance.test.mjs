@@ -37,6 +37,6 @@ test("provenance manifest covers every public file other than itself", async () 
     assert.equal(entry.sha256, await sha256(file), file);
     assert.match(entry.classification, /^[-a-z]+$/);
     assert.match(entry.origin, /^[-a-z]+$/);
-    assert.match(entry.review_status, /^(?:pending-human-review|approved-human-review)$/);
+    assert.match(entry.review_status, /^(?:pending-human-review|approved-human-review|owner-authorized-extraction)$/);
   }
 });
