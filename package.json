@@ -1,0 +1,14 @@
+{
+  "name": "autonom-ia-stage-gate",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check:public-safety": "bash scripts/check-public-safety.sh"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
