@@ -16,5 +16,7 @@
 - provider credentials, HMAC keys, access tokens and private evidence;
 - operational topology, host addresses and paid-dispatch configuration.
 
-The private platform may later emit a schema-compatible sanitized package. The
+The first public releases accept only newly invented synthetic fixtures. A future
+sanitized package would require a separate release process: provenance manifest,
+human review, DLP scan, re-identification assessment and published checksums. The
 public repository never connects back to the platform or accepts a credential.

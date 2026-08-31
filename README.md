@@ -37,6 +37,7 @@ See [the public/private boundary](docs/public-private-boundary.md) and
 
 ```sh
 npm test
+npm run test:public-safety
 npm run check:public-safety
 ```
 

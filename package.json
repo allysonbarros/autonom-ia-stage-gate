@@ -4,8 +4,10 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "test": "node --test test/*.test.mjs",
-    "check:public-safety": "bash scripts/check-public-safety.sh"
+    "test": "npm run test:all",
+    "test:all": "node --test test/*.test.mjs",
+    "test:public-safety": "node --test test/public-safety.test.mjs",
+    "check:public-safety": "node scripts/check-public-safety.mjs"
   },
   "license": "MIT",
   "engines": {
