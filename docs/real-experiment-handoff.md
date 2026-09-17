@@ -5,6 +5,10 @@ an authorized REAL experiment is distributed as a separate private kit, with
 its own versioned operating instructions. This guide describes the handoff;
 it does not supply a research dataset, an execution grant or a provider route.
 
+Start with the [Stage4 manual](stage4/README.md) for the reference matrix,
+rubric, functional evaluation, analysis and evidence lifecycle. This handoff
+describes the transition from that public guide to authorized private operation.
+
 ## 1. Obtain the private kit
 
 Request the applicable kit through an authorized private channel. Extract it
@@ -38,6 +42,13 @@ actual Linux VM, rootless Docker, container isolation, network restrictions and
 resource quotas. Preserve the measured evidence and the applicable authorization
 in private storage; configuration declarations alone do not establish enforcement.
 
+The [Windows / VirtualBox bootstrap](../infra/vagrant-virtualbox/README.md)
+configures the public `stagegaterunner` user and pins Node.js 22.23.2 for synthetic
+tests. It does not prepare the private `tccrunner` user, its rootless socket or
+its research environment. Follow the private kit's setup and verify that actual
+user's dependencies, permissions, isolation and resource controls. The public
+`PASS_GATES_3_4_TECHNICAL` marker is not proof of those private prerequisites.
+
 For official collection, review the selected source artifacts, scope and
 priorities before freezing the evaluation instrument. Prepare fixtures, initial
 states, deterministic expected observations, runners, resets and controls.
@@ -60,6 +71,28 @@ the required instrument validation and human review, and keep pilot and canary
 outputs separate from the official sample.
 Provider access, budgets, exact invocation instructions and evidence custody
 remain part of that private workflow. This public guide cannot authorize them.
+
+## 5. Analyze, audit and prepare a separate release
+
+Preserve the frozen matrix of 4 Specs + 12 apps, 4 dimensions per target,
+3 judges and 2 judgment repetitions: 384 planned presentations. Each target
+retains its complete project context. Repetition 1 is primary; repetition 2
+measures stability and must not substitute for or be averaged with the first.
+Follow the private protocol for incomplete or ambiguous outcomes; the qualitative
+protocol has one attempt per presentation and zero automatic retries.
+
+The private kit provides ordinal alpha, pairwise quadratic weighted kappa and
+bootstrap with 5,000 replicates. Check completeness, validity and scientific
+eligibility before interpreting an official analysis. Ordinal alpha, bootstrap
+and the complete research analysis pipeline are not implemented in this public
+checkout. The public evaluator supplies
+synthetic checklist predicates, exact agreement and two-rater kappa only;
+qualitative scores do not replace deterministic functional completeness for H1.
+
+Preserve and verify private SQLite state and the evidence vault, keep keys
+separate, and complete the required custody sealing and human audit. A custody
+summary does not substitute for an analysis report or a human review. Neither
+the public repository nor this handoff supplies an end-to-end REAL audit CLI.
 
 Any later public evidence release has a separate sanitization and review
 process under the [public/private boundary](public-private-boundary.md). This

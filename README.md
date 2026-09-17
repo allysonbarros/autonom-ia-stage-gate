@@ -25,6 +25,8 @@ scientific claim. The public repository defaults to provider-free execution.
 
 ## Available components
 
+- [Stage4 manual](docs/stage4/README.md): reference design, rubric, functional
+  evaluation, private experiment workflow and the public Windows technical path.
 - [Contracts](packages/contracts/README.md): canonical JSON, synthetic input
   validation and reproducible integrity receipts.
 - [Executor policy](packages/executor/README.md): a declarative, provider-free
@@ -32,6 +34,8 @@ scientific claim. The public repository defaults to provider-free execution.
   execute Docker.
 - [Host candidate](infra/vagrant-kvm/README.md): Vagrant/KVM provisioning and
   checks for rootless Docker, with the default shared folder disabled.
+- [Windows / VirtualBox host](infra/vagrant-virtualbox/README.md): public VM
+  bootstrap, DNS preflight and synthetic technical checks under `stagegaterunner`.
 - [Evaluator](packages/evaluator/README.md): local checklist predicates, exact
   agreement and quadratic weighted kappa for synthetic inputs.
 - Public-content scanning, negative safety tests and per-file provenance hashes.
