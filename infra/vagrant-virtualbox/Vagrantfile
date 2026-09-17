@@ -1,0 +1,22 @@
+# Windows/VirtualBox host for synthetic technical checks.
+repo = ENV.fetch("STAGE_GATE_REPO")
+Vagrant.configure("2") do |config|
+  config.vm.box = ENV.fetch("STAGE_GATE_BOX", "generic/debian12")
+  config.vm.hostname = "stage-gate-provider-free"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.ssh.forward_agent = false
+  config.vm.boot_timeout = 600
+  config.vm.provider :virtualbox do |vb|
+    vb.cpus = Integer(ENV.fetch("STAGE_GATE_CPUS", "4"))
+    vb.memory = Integer(ENV.fetch("STAGE_GATE_MEMORY_MB", "8192"))
+    vb.gui = false
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
+  config.vm.disk :disk, size: "#{ENV.fetch('STAGE_GATE_DISK_GB', '80')}GB", primary: true
+  config.vm.provision "network-preflight", type: "shell", path: "network-preflight.sh"
+  config.vm.provision "bootstrap-root", type: "shell", path: File.join(repo, "infra/vagrant-kvm/provision/bootstrap-root.sh")
+  config.vm.provision "verify-provider-free", type: "shell", path: File.join(repo, "infra/vagrant-kvm/provision/verify-provider-free.sh")
+  config.vm.provision "copy-source", type: "file", source: "source.bundle", destination: "/tmp/stage-gate-source.bundle"
+  config.vm.provision "setup-tests", type: "shell", path: "setup-tests.sh"
+  config.vm.provision "run-gates", type: "shell", path: "run-gates.sh"
+end
