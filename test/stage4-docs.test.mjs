@@ -107,6 +107,10 @@ test("Stage4 identifies private analysis capabilities and the smaller public imp
   assert.match(text, /private kit provides ordinal Krippendorff alpha/);
   assert.match(text, /quadratic weighted kappa by judge pair/);
   assert.match(text, /bootstrap with 5,000 replicates/);
+  assert.match(text, /resamples targets within each dimension/);
+  assert.match(text, /seed is derived reproducibly from the recorded lock and judgment hashes plus the metric ID/);
+  assert.match(text, /does not serialize a seed or a resampling-unit field/);
+  assert.doesNotMatch(text, /records the applicable resampling unit, seed/);
   assert.match(text, /Use repetition 1 for the primary agreement analysis/);
   assert.match(text, /official report requires a complete, valid and eligible cohort/);
   assert.match(text, /Ordinal alpha, bootstrap with 5,000 replicates, the full three-judge analysis\/report pipeline and the research H1 aggregator are not implemented in this public checkout/);

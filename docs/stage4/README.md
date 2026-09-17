@@ -134,9 +134,13 @@ completed human audit. There is no public end-to-end REAL audit command.
 The private kit provides ordinal Krippendorff alpha for agreement across three
 judges, quadratic weighted kappa by judge pair, exact/within-one-point agreement,
 score distributions and same-target judgment stability. Its reference analysis
-uses bootstrap with 5,000 replicates and records the applicable resampling unit,
-seed and interval method so the report can be reproduced. Do not treat the 384
-presentations as interchangeable independent observations for resampling.
+uses bootstrap with 5,000 replicates and resamples targets within each dimension.
+The seed is derived reproducibly from the recorded lock and judgment hashes plus
+the metric ID. The report records these hashes, the RNG identifier, metric IDs
+and the interval method when defined; it does not serialize a seed or a
+resampling-unit field. Reproduction also requires the matching versioned
+implementation. Do not treat the 384 presentations as interchangeable independent
+observations for resampling.
 
 Use repetition 1 for the primary agreement analysis; compare repetition 1 and 2
 for stability. Keep results by dimension and target family, with the specified
