@@ -20,3 +20,15 @@ The first public releases accept only newly invented synthetic fixtures. A futur
 sanitized package would require a separate release process: provenance manifest,
 human review, DLP scan, re-identification assessment and published checksums. The
 public repository never connects back to the platform or accepts a credential.
+
+## Private experiment handoff
+
+The [handoff guide](real-experiment-handoff.md) describes how an authorized
+operator obtains and verifies a separate private kit outside the public
+repository. It contains no private package, download endpoint or deployment
+configuration. Updating both repositories does not authorize copying private
+source, capsules or evidence into this repository or its Git history.
+
+The historical requirements for identified human review remain pending where
+the provenance registry and specification review say so. This documentation
+update does not approve those entries or close the historical release gates.
